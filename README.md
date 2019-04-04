@@ -1,4 +1,4 @@
-# Erasmus-Manager
+# Erasmus Student Manager
 A bash script with the purpose to manage students that are from Erasmus.
 It will save all stored data in files, with the following format:
 
