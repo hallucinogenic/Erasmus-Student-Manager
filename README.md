@@ -17,11 +17,14 @@ It will save all stored data in files, with the following format:
 
 ## Backup Feature
 
+* Saving all the current data to a compressed ***BZ2*** file, in a backup folder;
+* Remove a certain backup that are stored in the backup folder;
+* Restore a previous backup, to ovewrite the old data;
+
 You can simply save a backup of all data that are saved in that specific time.
 
-This was made to the ***Operative System*** Class at **Universidade da Beira Interior, Covilhã, Portugal**
+This was made to the ***Operative System*** Class at **Universidade da Beira Interior, Covilhã, Portugal** at a group of 3 people;
 
 # To-Do List
 
 * Check which player has the highest grade in a certain University;
-* Check for Student's Citizen Cards repetitions;
