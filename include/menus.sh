@@ -6,14 +6,14 @@ Registo()
     do
         echo "---------------------------------"
         echo "Menu dos Registos:"
-        echo "1) Universidade"
-        echo "2) Professor"
-        echo "3) Estudante"
-        echo "4) Disciplina"
-        echo "5) Atribuir Disciplina a Aluno"
-        echo "0) Voltar para o Menu Principal"
+        echo "${cyan}1) Universidade${default}"
+        echo "${cyan}2) Professor${default}"
+        echo "${cyan}3) Estudante${default}"
+        echo "${cyan}4) Disciplina${default}"
+        echo "${cyan}5) Atribuir Disciplina a Aluno${default}"
+        echo "${cyan}0) Voltar para o Menu Principal${default}"
         echo "---------------------------------"
-        echo -n "Introduz a tua escolha: "
+        echo -n "${blue}Introduz a tua escolha: ${default}"
         read opcao
 
         case $opcao in
@@ -36,17 +36,17 @@ Backup()
     do
         echo "---------------------------------"
         echo "Menu dos Backups:"
-        echo "1) Criar um Backup"
-        echo "2) Restaurar um Backup"
-        echo "3) Apagar um Backup"
-        echo "0) Voltar para o Menu Principal"
+        echo "${cyan}1) Criar um Backup${default}"
+        echo "${cyan}2) Restaurar um Backup${default}"
+        echo "${cyan}3) Apagar um Backup${default}"
+        echo "${cyan}0) Voltar para o Menu Principal${default}"
         echo "---------------------------------"
-        echo -n "Introduz a tua escolha: "
+        echo -n "${blue}Introduz a tua escolha: ${default}"
         read opcao
 
         case $opcao in
             1) Backup_Total ;;
-            2) echo "${blue}Esta opção encontra-se em beta!${default}" ;;
+            2) Backup_Restore ;;
             3) Backup_Remove ;;
             0) Main_Menu ;;
             *) echo "${red}Opção Desconhecida! Tenta outra vez!${default}" ;;
@@ -62,18 +62,18 @@ Alterar()
     do
         echo "---------------------------------"
         echo "Menu das Alterações:"
-        echo "1) Universidade"
-        echo "2) Professor"
-        echo "3) Aluno"
-        echo "4) Disciplina"
-        echo "0) Voltar para o Menu Principal"
+        echo "${cyan}1) Universidade${default}"
+        echo "${cyan}2) Professor${default}"
+        echo "${cyan}3) Aluno${default}"
+        echo "${cyan}4) Disciplina${default}"
+        echo "${cyan}0) Voltar para o Menu Principal${default}"
         echo "---------------------------------"
-        echo -n "Introduz a tua escolha: "
+        echo -n "${blue}Introduz a tua escolha: ${default}"
         read opcao
 
         case $opcao in
             1) Change_Universidade ;;
-            2) echo "${blue}Esta opção encontra-se em beta!${default}" ;;
+            2) Change_Professor ;;
             3) Change_Aluno ;;
             4) Change_Disciplina ;;
             0) Main_Menu ;;
@@ -90,14 +90,14 @@ Relatorios()
     do
         echo "---------------------------------"
         echo "Menu dos Relatórios:"
-        echo "1) Listar Universidades"
-        echo "2) Listar Disciplinas"
-        echo "3) Listar Alunos"
-        echo "4) Listar Professores"
-        echo "5) Listar Disciplinas com alunos Inscritos"
-        echo "0) Voltar para o Menu Principal"
+        echo "${cyan}1) Listar Universidades${default}"
+        echo "${cyan}2) Listar Disciplinas${default}"
+        echo "${cyan}3) Listar Alunos${default}"
+        echo "${cyan}4) Listar Professores${default}"
+        echo "${cyan}5) Listar Disciplinas com alunos Inscritos${default}"
+        echo "${cyan}0) Voltar para o Menu Principal${default}"
         echo "---------------------------------"
-        echo -n "Introduz a tua escolha: "
+        echo -n "${blue}Introduz a tua escolha: ${default}"
         read opcao
 
         case $opcao in
@@ -120,13 +120,13 @@ Remove()
     do
         echo "---------------------------------"
         echo "Menu das Remoções:"
-        echo "1) Remover Universidades"
-        echo "2) Remover Professores"
-        echo "3) Remover Alunos"
-        echo "4) Remover Disciplinas"
-        echo "0) Voltar para o Menu Principal"
+        echo "${cyan}1) Remover Universidades${default}"
+        echo "${cyan}2) Remover Professores${default}"
+        echo "${cyan}3) Remover Alunos${default}"
+        echo "${cyan}4) Remover Disciplinas${default}"
+        echo "${cyan}0) Voltar para o Menu Principal${default}"
         echo "---------------------------------"
-        echo -n "Introduz a tua escolha: "
+        echo -n "${blue}Introduz a tua escolha: ${default}"
         read opcao
 
         case $opcao in
@@ -148,14 +148,14 @@ Main_Menu()
     do
         echo "---------------------------------"
         echo "Menu Principal:"
-        echo "1) Registar Dados"
-        echo "2) Alterar Dados"
-        echo "3) Remover Dados"
-        echo "4) Relatórios"
-        echo "5) Gestão do(s) Ficheiro(s) de Base de Dados"
-        echo "0) Sair do Programa"
+        echo "${cyan}1) Registar Dados${default}"
+        echo "${cyan}2) Alterar Dados${default}"
+        echo "${cyan}3) Remover Dados${default}"
+        echo "${cyan}4) Relatórios${default}"
+        echo "${cyan}5) Gestão do(s) Ficheiro(s) de Base de Dados${default}"
+        echo "${cyan}0) Sair do Programa${default}"
         echo "---------------------------------"
-        echo -n "Introduz a tua escolha: "
+        echo -n "${blue}Introduz a tua escolha: ${default}"
         read opcao
 
         case $opcao in

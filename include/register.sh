@@ -27,8 +27,10 @@ Registar_Disciplina_Aluno()
                                     while  read -r line  ;
                                     do
                                         ID_disc=$(echo $line | cut -d : -f 1)
+                                        ID_disc=$(echo $ID_disc | cut -d "|" -f 2)
                                         Nome_disc=$(echo $line | cut -d : -f 2)
                                         Max_Alunos_disc=$(echo $line | cut -d : -f 3)
+                                        Max_Alunos_disc=$(echo $Max_Alunos_disc | cut -d "|" -f 1)
                                         echo -e "${yellow}$ID_disc)\t$Nome_disc\t$Max_Alunos_disc${default}"
                                     done < "$sigla_dir/$file_disc"
                                 echo "-----------------------------"
@@ -36,8 +38,8 @@ Registar_Disciplina_Aluno()
                                 echo -n "${blue}Insere o ID da disciplina que pretendemos atribuir: ${default}"
                                 read ID_atrib_disc
 
-                                max_aluno_disc_atrib=$(grep "$ID_atrib_disc:" "$sigla_dir/$file_disc" | cut -d : -f 3)
-                                nome_disc_atrib=$(grep "$ID_atrib_disc:" "$sigla_dir/$file_disc" | cut -d : -f 2)
+                                max_aluno_disc_atrib=$(grep "|$ID_atrib_disc:" "$sigla_dir/$file_disc" | cut -d : -f 3)
+                                nome_disc_atrib=$(grep "|$ID_atrib_disc:" "$sigla_dir/$file_disc" | cut -d : -f 2)
 
                                 while [ $(grep -o "$nome_disc_atrib" "$sigla_dir/$file_disc" | wc -l) -eq $max_aluno_disc_atrib ]
                                     do
@@ -57,11 +59,13 @@ Registar_Disciplina_Aluno()
                                             while  read -r line  ;
                                             do
                                                 ID=$(echo $line | cut -d : -f 1)
+                                                ID=$(echo $ID | cut -d "|" -f 2)
                                                 Nome=$(echo $line | cut -d : -f 2)
                                                 Idade=$(echo $line | cut -d : -f 3)
                                                 Sexo=$(echo $line | cut -d : -f 4)
                                                 CC=$(echo $line | cut -d : -f 5)
                                                 Pais=$(echo $line | cut -d : -f 6)
+                                                Pais=$(echo $Pais | cut -d "|" -f 1)
                                                 echo -e "${yellow}$ID)\t$Nome\t$Idade\t$Sexo\t$CC\t$Pais${default}"
                                             done < "$sigla_dir/$file_student"
                                         echo "-----------------------------"
@@ -206,17 +210,20 @@ Registar_Professor()
                         echo -n "${blue}Introduz a idade do Professor${default}"
                         read prof_idade
 
+                        echo -n "${blue}Introduz o país responsável que o Professor está indicado:${default}"
+                        read prof_pais
+
                         let id_professores_aux=id_ultimo_professor+1
 
                         # Caso seja o primeiro professor a ser inserida, será criado um ficheiro temporário e depois será movido
                             # para um ficheiro que se encontra na pasta cujo nome é a Sigla da Universidade (Caso não exista, cria-se automaticamente)
                         if [ $id_professores_aux -eq 1 ]
                             then
-                                echo "|$id_professores_aux:$prof_nome:$prof_idade|" > in1.txt
+                                echo "|$id_professores_aux:$prof_nome:$prof_idade:$prof_pais|" > in1.txt
                                 mv -T in1.txt "$sigla/$file_prof"
                         # Caso contrário, apenas será incrementado no ficheiro, que se encontra na pasta cujo nome é a Sigla da Universidade;
                         else
-                            echo "|$id_professores_aux:$prof_nome:$prof_idade|" >> "$sigla/$file_prof"
+                            echo "|$id_professores_aux:$prof_nome:$prof_idade:$prof_pais|" >> "$sigla/$file_prof"
                         fi
 
                         echo "${green}O Professor $prof_nome (ID: $id_professores_aux) foi registado com sucesso!${default}"
@@ -273,6 +280,7 @@ Registar_Estudante()
                         echo "M -> Masculino${default}"
                         read student_sexo
 
+
                         echo -n "${blue}Introduz o nº de Cartão de Cidadão (CC) do aluno: ${default}"
                         read student_cc
 
@@ -295,10 +303,10 @@ Registar_Estudante()
                         echo -n "${blue}Seleciona o país do Aluno: ${default}"
                         read student_country
 
-                        while [ $(Check_For_Country "$student_country" "$sigla_uni") -eq 1 ]
+                        while [ "$(grep ":$sigla_uni:" $file_uni | cut -d : -f 4)" == "$student_country" ]
                             do
                                 echo "${red}O país não pode ser o mesmo da Universidade!${default}"
-                                echo -n "${blue}Escreve o país do aluno: ${default}"
+                                echo -n "${blue}Escreve novamente o país do aluno: ${default}"
                                 read student_country
                         done
 
@@ -314,6 +322,8 @@ Registar_Estudante()
                         else
                             echo "|$id_alunos_aux:$student_nome:$student_idade:$student_sexo:$student_cc:$student_country|" >> "$sigla/$file_student"
                         fi
+
+                        echo "${green}O Aluno $student_nome (ID: $id_alunos_aux) foi registado com sucesso!${default}"
                 else
                     echo "${red}Esta diretoria não existe!${default}"
                 fi
@@ -351,7 +361,6 @@ Registar_Universidade()
 
     echo -n "${blue}Introduz uma Sigla para a Universidade:${default} "
     read sigla_uni
-
     
     dir_sigla="$PWD/$sigla_uni"
 
@@ -364,15 +373,14 @@ Registar_Universidade()
             dir_sigla="$PWD/$sigla_uni"
     done
 
-    # Será criada uma pasta com o nome colocado na "Sigla" da Universidade
-    mkdir -p $dir_sigla
-
     echo -n "${blue}Introduz o país dessa Universidade: ${default}"
     read pais_uni
 
-
     echo -n "${blue}Introduz a localidade dessa Universidade:${default} "
     read localidade_uni
+
+    # Será criada uma pasta com o nome colocado na "Sigla" da Universidade
+    mkdir -p $dir_sigla
 
     # Como será colocada em último lugar, terá um ID incrementado por 1, ao último inserido;
     let id_universidades_aux=id_ultima_universidade+1
