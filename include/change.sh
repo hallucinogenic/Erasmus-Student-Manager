@@ -52,7 +52,7 @@ Change_Universidade()
                     # Caso exista alguma pasta com essa sigla, será pedido uma nova sigla ao utilizador;
                     while [ -d $dir_new ]
                         do
-                            echo "${red}Já existe uma Universidade com essa sigla!${default}"
+                                echo "${red}Já existe uma Universidade com essa sigla!${default}"
                             echo -n "${blue}Insere novamente:${default} "
                             read sigla_uni_new
                             didir_newr="$PWD/$sigla_uni"
@@ -415,4 +415,4 @@ Change_Professor()
     else
         echo "${red}Não existem Universidades registadas!${default}"
     fi
-}
+}   

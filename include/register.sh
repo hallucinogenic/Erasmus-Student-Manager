@@ -41,7 +41,7 @@ Registar_Disciplina_Aluno()
                                 max_aluno_disc_atrib=$(grep "|$ID_atrib_disc:" "$sigla_dir/$file_disc" | cut -d : -f 3)
                                 nome_disc_atrib=$(grep "|$ID_atrib_disc:" "$sigla_dir/$file_disc" | cut -d : -f 2)
 
-                                while [ $(grep -o "$nome_disc_atrib" "$sigla_dir/$file_disc" | wc -l) -eq $max_aluno_disc_atrib ]
+                                while [ $(grep -o ":$nome_disc_atrib:" "$sigla_dir/$file_disc" | wc -l) -eq $max_aluno_disc_atrib ]
                                     do
                                         echo "${red}Esta disciplina já se encontra cheia!${default}"
                                         echo -n "${blue}Escolhe o ID de outra disciplina: ${default}"

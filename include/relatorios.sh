@@ -82,7 +82,7 @@ Relatorio_Disciplinas_Atribuidas()
                         done < in2.txt
                         echo "-----------------------------"
 
-                        #rm -rf "$PWD/in2.txt"
+                        rm -rf "$PWD/in2.txt"
 
                     # Caso contrário, não existem alunos atribuídos a esta Universidade
                     else
