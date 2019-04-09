@@ -16,8 +16,10 @@ Remove_Universidades()
             while [ ! -d "$sigla" ]
             do
                 echo "${red}Esta universidade não existe!${default}"
-                echo -n "${blue}Insere novamente o ID da Universidade: "
+                echo -n "${blue}Insere novamente o ID da Universidade: ${default}"
                 read ID
+                sigla=$(grep "|$ID:" $file_uni | cut -d : -f 3)
+                nome_uni=$(grep "|$ID:" $file_uni | cut -d : -f 2)
             done
 
             # Chama uma função customizada para apagar o determinado ficheiro

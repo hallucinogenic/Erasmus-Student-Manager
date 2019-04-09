@@ -5,7 +5,7 @@ Registar_Disciplina_Aluno()
         then
             Relatorio_Universidades
 
-        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar a disciplina:${default}"
+        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar a disciplina: ${default}"
         read sigla_uni
 
         # Vai verificar se a sigla existe (para ver se foi inserida sem erros)
@@ -119,7 +119,7 @@ Registar_Disciplina()
         then
             Relatorio_Universidades
 
-        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar a disciplina:${default}"
+        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar a disciplina: ${default}"
         read sigla_uni
 
         # Vai verificar se a sigla existe (para ver se foi inserida sem erros)
@@ -142,10 +142,10 @@ Registar_Disciplina()
                                 id_ultima_disciplina=$(echo $id_ultima_disciplina | cut -d "|" -f 2)
                         fi
                         
-                        echo -n "${blue}Introduz o nome da Disciplina:${default}"
+                        echo -n "${blue}Introduz o nome da Disciplina: ${default}"
                         read disc_nome
 
-                        echo -n "${blue}Introduz o número máximo de alunos:${default}"
+                        echo -n "${blue}Introduz o número máximo de alunos: ${default}"
                         read disc_max_alunos
 
                         let id_disciplinas_aux=id_ultima_disciplina+1
@@ -181,7 +181,7 @@ Registar_Professor()
         then
             Relatorio_Universidades
 
-        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar o professor:${default}"
+        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar o professor: ${default}"
         read sigla_uni
 
         # Vai verificar se a sigla existe (para ver se foi inserida sem erros)
@@ -204,13 +204,13 @@ Registar_Professor()
                                 id_ultimo_professor=$(echo $id_ultimo_professor | cut -d "|" -f 2)
                         fi
                         
-                        echo -n "${blue}Introduz o nome do Professor${default}"
+                        echo -n "${blue}Introduz o nome do Professor: ${default}"
                         read prof_nome
 
-                        echo -n "${blue}Introduz a idade do Professor${default}"
+                        echo -n "${blue}Introduz a idade do Professor: ${default}"
                         read prof_idade
 
-                        echo -n "${blue}Introduz o país responsável que o Professor está indicado:${default}"
+                        echo -n "${blue}Introduz o país responsável que o Professor está indicado: ${default}"
                         read prof_pais
 
                         let id_professores_aux=id_ultimo_professor+1
@@ -246,7 +246,7 @@ Registar_Estudante()
         then
             Relatorio_Universidades
 
-        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar a disciplina: ${default}"
+        echo -n "${blue}Seleciona a Sigla da Universidade que pretendes registar o aluno: ${default}"
         read sigla_uni
 
         # Vai verificar se a sigla existe (para ver se foi inserida sem erros)

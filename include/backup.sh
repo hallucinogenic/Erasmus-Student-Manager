@@ -10,6 +10,11 @@ Backup_Total()
             
             dir_backup="$date"
 
+            if [ ! -d "$PWD/backup" ]
+                then
+                    mkdir -p "$PWD/backup"
+            fi
+
             # Cria-se a directoria com a data atual
             mkdir -p $dir_backup
 
@@ -83,6 +88,7 @@ Backup_Remove()
             if [ $(wc -l < "$file_backups") -eq 1 ]
                 then
                     rm -rf "$file_backups"
+                    rm -rf "$PWD/backup"
             else
                 # Remove o dado registado
                 grep -v "$filename" "$file_backups" > in1.txt
