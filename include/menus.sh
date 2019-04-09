@@ -17,11 +17,11 @@ Registo()
         read opcao
 
         case $opcao in
-            1) Registar_University ;;
+            1) Registar_Universidade ;;
             2) Registar_Professor ;;
             3) Registar_Estudante ;;
-            4) Registar_Subject ;;
-            5) Registar_Subject_Student ;;
+            4) Registar_Disciplina ;;
+            5) Registar_Disciplina_Aluno ;;
             0) Main_Menu ;;
             *) echo "${red}Invalid Option! Try again!${default}" ;;
         esac
@@ -72,10 +72,10 @@ Alterar()
         read opcao
 
         case $opcao in
-            1) Change_University ;;
+            1) Change_Universidade ;;
             2) Change_Professor ;;
-            3) Change_Student ;;
-            4) Change_Subject ;;
+            3) Change_Aluno ;;
+            4) Change_Disciplina ;;
             0) Main_Menu ;;
             *) echo "${red}Invalid Option! Try again!${default}" ;;
         esac
@@ -101,11 +101,11 @@ Relatorios()
         read opcao
 
         case $opcao in
-            1) Relatorio_Universitys ;;
-            2) Relatorio_Subjects ;;
-            3) Relatorio_Students ;;
+            1) Relatorio_Universidade ;;
+            2) Relatorio_Disciplinas ;;
+            3) Relatorio_Alunos ;;
             4) Relatorio_Professores ;;
-            5) Relatorio_Subjects_Atribuidas ;;
+            5) Relatorio_Disciplinas_Atribuidas ;;
             0) Main_Menu ;;
             *) echo "${red}Invalid Option! Try again!${default}" ;;
         esac
@@ -130,10 +130,10 @@ Remove()
         read opcao
 
         case $opcao in
-            1) Remove_Universitys ;;
+            1) Remove_Universidades ;;
             2) Remove_Professor ;;
-            3) Remove_Student ;;
-            4) Remove_Subjects ;;
+            3) Remove_Aluno ;;
+            4) Remove_Disciplinas ;;
             0) Main_Menu ;;
             *) echo "${red}Invalid Option! Try again!${default}" ;;
         esac
